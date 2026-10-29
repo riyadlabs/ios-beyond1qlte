@@ -1,14 +1,19 @@
 # ios-beyond1qlte
 
-**Apple's iOS 16 running on a Samsung Galaxy S10.**
+**Apple's iOS 16 on a Samsung Galaxy S10 (work in progress).**
 
-This project ports Apple's open-source XNU kernel (xnu-8796, the iOS 16 generation) to the Samsung Galaxy S10 (`beyond1qlte`, Qualcomm Snapdragon 855 / SM8150). It boots a real iPhone X (`iPhone10,3`) iOS 16.7.16 root filesystem and shared cache on top of a custom kernel, device tree and bare-metal boot shim, so launchd, the system daemons, backboardd, SpringBoard and the stock apps run on the phone.
+> ## ⚠️ Early stage: this is a fork, no S10 work has been done yet
+> This repository was **just forked** from an existing port for a different phone (Redmi Note 10 Pro, `sweet`, SM7150). **Nothing here has been ported, built or tested on the Galaxy S10 yet.** The code, patches, device tree, drivers and instructions below still describe that original device and are kept as the starting point. Do **not** flash anything from this repo to an S10 right now, you will most likely just brick it.
+
+The goal of this project is to port Apple's open-source XNU kernel (xnu-8796, the iOS 16 generation) to the Samsung Galaxy S10 (`beyond1qlte`, Qualcomm Snapdragon 855 / SM8150), booting a real iPhone X (`iPhone10,3`) iOS 16.7.16 root filesystem and shared cache on top of a custom kernel, device tree and bare-metal boot shim.
 
 <!-- TODO: add screenshots / a boot video here, e.g. ![Home screen](docs/home.jpg) -->
 
 > **Experimental bring-up, not a usable phone OS.** Many things are missing or stubbed (see below), and Apple's security model is mostly switched off. It installs into the `userdata` partition and so **erases Android's user data**. Flashing the wrong thing can brick your phone. You do this at your own risk.
 
 ## Status
+
+**Nothing is confirmed working on the Galaxy S10 yet.** The table below is the target feature list inherited from the original `sweet` port, not the current state of this repo.
 
 <!-- TODO: update this table to match what actually works on the S10 today. Anything not verified should stay "untested" or move to the next section. -->
 
